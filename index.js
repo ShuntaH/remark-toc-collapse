@@ -28,9 +28,35 @@ export default function remarkToc(options = {}) {
       return
     }
 
+    // Get the table of content's headings.
+    const toc_summary = node.children[result.index - 1]
+
+    /*
+    * Remove the retrieved heading mdast elements from
+    * their current location and place them inside the summary element.
+    */
+    node.children.splice(result.index - 1, 1)
+
     node.children = [
-      ...node.children.slice(0, result.index),
+      ...node.children.slice(0, result.index - 1),
+      {
+        type: 'html',
+        value: '<details>'
+      },
+      {
+        type: 'html',
+        value: '<summary>'
+      },
+      toc_summary,
+      {
+        type: 'html',
+        value: '</summary>'
+      },
       result.map,
+      {
+        type: 'html',
+        value: '</details>'
+      },
       ...node.children.slice(result.endIndex)
     ]
   }
