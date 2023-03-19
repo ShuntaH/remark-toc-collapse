@@ -10,7 +10,7 @@ import {toc} from 'mdast-util-toc'
  *
  * @type {import('unified').Plugin<[Options?]|void[], Root>}
  */
-export default function remarkToc(options = {}) {
+export default function remarkTocCollapse(options = {}) {
   return (node) => {
     const result = toc(
       node,
