@@ -1,6 +1,6 @@
 {
   "name": "remark-toc-collapse",
-  "version": "8.0.1",
+  "version": "1.0.0",
   "description": "This is a plugin that was forked from remark-toc. It combines the functionality of remark-toc with the collapsible feature of remark-collapse, resulting in a plugin that can generate a table of contents for a markdown article and make it collapsible.",
   "license": "MIT",
   "keywords": [

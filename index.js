@@ -29,7 +29,7 @@ export default function remarkTocCollapse(options = {}) {
     }
 
     // Get the table of content's headings.
-    const toc_summary = node.children[result.index - 1]
+    const summary = node.children[result.index - 1]
 
     /*
     * Remove the retrieved heading mdast elements from
@@ -47,7 +47,7 @@ export default function remarkTocCollapse(options = {}) {
         type: 'html',
         value: '<summary>'
       },
-      toc_summary,
+      summary,
       {
         type: 'html',
         value: '</summary>'
