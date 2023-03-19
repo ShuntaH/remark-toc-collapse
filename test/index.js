@@ -8,6 +8,7 @@ import test from 'tape'
 import {remark} from 'remark'
 import {isHidden} from 'is-hidden'
 import remarkToc from '../index.js'
+import remarkTocCollapse from '../index.js'
 
 test('Fixtures', (t) => {
   const root = path.join('test', 'fixtures')
@@ -33,7 +34,7 @@ test('Fixtures', (t) => {
     t.equal(
       remark()
         .use({settings: {bullet: '-'}})
-        .use(remarkToc, config)
+        .use(remarkTocCollapse, config)
         .processSync(fs.readFileSync(path.join(root, fixture, 'input.md')))
         .toString(),
       String(fs.readFileSync(path.join(root, fixture, 'output.md'))),
